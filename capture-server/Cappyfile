@@ -1,0 +1,10 @@
+cappybara.eastus.cloudapp.azure.com {
+    # Requests to https://example.com/api/* are reverse-proxied to your CORS service
+    reverse_proxy /api/* localhost:8443
+
+    # Requests to https://example.com/static/* are reverse-proxied to your Flask server
+    reverse_proxy /static/* localhost:4443
+
+    # Enable automatic HTTPS with HTTP challenge
+    tls /home/azureuser/cert.pem /home/azureuser/certs/privkey.pem
+}

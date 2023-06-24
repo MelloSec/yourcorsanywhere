@@ -1,0 +1,6 @@
+[submodule "cors-anywhere"]
+	path = cors-anywhere
+	url = https://github.com/MelloSec/cors-anywhere.git
+[submodule "supdog"]
+	path = supdog
+	url = https://github.com/mellosec/supdog

