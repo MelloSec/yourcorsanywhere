@@ -1,4 +1,3 @@
-
 test.straylightsecurity.com {
     handle {
         reverse_proxy localhost:8443 {
@@ -22,6 +21,4 @@ test.straylightsecurity.com {
             }
         }
     }
-}"
-echo $caddy_config > ~/Caddyfile
-echo $caddy_config > /etc/caddy/Caddyfile
+}
